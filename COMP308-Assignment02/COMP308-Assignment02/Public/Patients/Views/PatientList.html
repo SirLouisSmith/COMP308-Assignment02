@@ -1,0 +1,24 @@
+<form name="PatientForm" ng-controller="PatientDetails as patientform" ng-submit="patientform.submit(PatientForm.$vaild, data)">
+       <h2 class="text-center"> Patient List </h2>
+        <br>
+        <table class="table" id="patientList">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone #</th>
+                <th>Last Visit Date</th>
+            </tr>
+            <tr ng-repeat="patient in patientModel | orderBy : '+last_name'" ng-click="selectedPatient(patient)">
+                <td>{{patient.first_name}}</td>
+                <td>{{patient.last_name}}</td>
+                <td>{{patient.phone}}</td>
+                <td>{{patient.last_visited}}</td>
+            </tr>
+        </table>
+
+        <a href="#patientDetails">
+            <button class="btn btn-success" ng-click="resetForm()">
+                <span aria-hidden="true"></span> Add New Patient
+            </button>
+        </a>
+</form>

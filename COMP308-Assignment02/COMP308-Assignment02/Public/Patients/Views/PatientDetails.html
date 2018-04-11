@@ -1,0 +1,19 @@
+ <h2 class="text-center"> Patient Details </h2>
+        <br>
+        <form role="search" ng-submit="submit(patient)">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="First Name" ng-model="patient.first_name" pattern="^[A-Z][a-zA-Z0-9]*$" required>
+                <input type="text" class="form-control " placeholder="Last Name " ng-model="patient.last_name" pattern="^[A-Z][a-zA-Z0-9]*$" required>
+                <input type="text" class="form-control " placeholder="Phone Number " ng-model="patient.phone" pattern="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}">
+                <input type="date" class="form-control " placeholder="Calender " ng-model="patient.last_visited" required>
+                <select class="form-control" ng-model="patient.status" required>
+                    <option value="Active" selected="selected">Active</option>
+                    <option value="InActive ">InActive</option>
+                </select>
+            </div>
+            <br>
+            <br>
+            <input class="btn btn-primary" type="submit">
+            <button class="btn btn-info" type="reset" ng-click="resetForm()">Clear</button>
+            <button class="btn btn-danger" ng-click="goBack()">Back</button>
+        </form>

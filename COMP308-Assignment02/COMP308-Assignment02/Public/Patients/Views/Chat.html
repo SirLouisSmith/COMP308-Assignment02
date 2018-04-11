@@ -1,0 +1,15 @@
+﻿<div id="chatpage" class="col-sm-8" ng-controller="Chat">
+    <div id="controls" class="col-sm-4">
+        <h2>Chat Room</h2>
+        <p>Enter text in the input box to chat with others.</p>
+        <input type="text" value="" id="chattxt" ng-model="chatmsg" ng-keypress="($event.which === 13)?enterMessage(chatmsg):0" autofocus/>
+        <button class="btn btn-info" ng-click="addMessage(chatmsg)"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;Enter</button>
+    </div>
+    <div id="chat" class="col-sm-8">
+        <div id="chat">
+            <ul id="chatitems" class="list-group">
+                <li ng-repeat="chat in chatlog track by $index" class="list-group-item"><b>{{chat.time}}</b> :{{chat.msg}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

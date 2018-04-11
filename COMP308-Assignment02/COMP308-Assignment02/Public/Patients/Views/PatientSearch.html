@@ -1,0 +1,42 @@
+﻿<ul class="nav nav-tabs" role="tablist">
+    <li><a href="#drlogin">Login</a></li>
+    <li class ="active"><a href="#search">Search</a></li>
+    <li><a href="#list">Patient List</a></li>
+</ul>
+
+<div ng-controller="PatientSearch as search">
+    <h2 id="message">Patient Search</h2>
+    <form class="form-horizontal" role="form" name="search" ng-submit="searchPatient(patient)">
+        <div class=" form-group">
+        <label class="control-label col-sm-1">Search | </label>
+        <label class="control-label col-sm-2" for="s_last_name">Last Name:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="last_name" name="last_name" maxlength="32" placeholder="Search by Last Name" ng-model="searchValue"/>
+        </div>
+</div>
+    </form>
+
+    <table class="table table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Family Doctor</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="patient in filteredList = (patientModel | filter:searchValue) | orderBy:sortType:sortReverse | startFrom:currentPage*pageSize | limitTo:pageSize"
+            dir-paginate="patient in patientModel | itemsPerPage: 5"
+            ng-class="{active: activePage.page == $index, inactive: activePage.page != $index}">
+            <td>{{patient.first_name}}</td>
+            <td>{{patient.last_name}}</td>
+            <td>{{patient.family_doctor}}</td>
+            <td>{{patient.age}}</td>
+        </tr>
+    </table>
+    <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+</div>

@@ -1,0 +1,37 @@
+﻿<ul class="nav nav-tabs" role="tablist">
+    <li><a href="#drlogin">Login</a></li>
+    <li><a href="#search">Search</a></li>
+    <li class="active"><a href="#list">Patient List</a></li>
+</ul>
+<dir-pagination-controls></dir-pagination-controls>
+<div ng-controller="PatientList2 as p">
+    <h2 id="message">Patient List</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Family Doctor</th>
+            <th>Total: {{patientCount}}</th>
+        </tr>
+        <tr ng-repeat="patient in patientModel | startFrom:currentPage*pageSize | limitTo:pageSize"
+            dir-paginate="patient in patientModel | itemsPerPage: 5"
+            ng-class="{active: activePage.page == $index, inactive: activePage.page != $index}">
+            <td>{{patient.first_name}}</td>
+            <td>{{patient.last_name}}</td>
+            <td>{{patient.family_doctor}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="selectPatient(patient);"><span class="glyphicon glyphicon-edit"></span></button>
+                <button class="btn btn-danger" ng-click="removePatient(patient);"><span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+    <button class="btn btn-info" ng-click="addPatient();"><span class="glyphicon glyphicon-user"></span>Create Patient</button>
+
+</div>

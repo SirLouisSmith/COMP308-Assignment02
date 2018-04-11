@@ -1,0 +1,42 @@
+﻿<ul class="nav nav-tabs" role="tablist">
+    <li><a href="#drlogin">Login</a></li>
+    <li><a href="#search">Search</a></li>
+    <li class="active"><a href="#list">Patient List</a></li>
+</ul>
+
+<div ng-controller="PatientRegister as register">
+    <h2 id="message">Register</h2>
+    <form class="form-horizontal" role="form" name="register">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="first_name">First Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="first_name" name="first_name" maxlength="32" ng-model="patient2.first_name" placeholder="First Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="last_name">Last Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="last_name" name="last_name" maxlength="32" ng-model="patient2.last_name" placeholder="Last Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="age">Age:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="age" name="age" maxlength="3" ng-model="patient2.age" placeholder="Age" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="family_doctor_ID">Family Doctor:</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="family_doctor" name="family_doctor" ng-model="patient2.family_doctor" ng-options="d.first_name + ' ' + d.last_name as d.first_name + ' ' + d.last_name for d in doctorModel" required>
+                    <option value="">Family Doctor...</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-success" ng-click="registerPatient(patient2)"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Register</button>
+            </div>
+        </div>
+    </form>
+</div>

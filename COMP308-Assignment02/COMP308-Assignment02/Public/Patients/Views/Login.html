@@ -1,0 +1,54 @@
+﻿<div ng-controller="Login as login">
+    <div class="col-sm-4">
+        <h3>Welcome to Chat</h3>
+        <p>Login to go into the chat room. If you do not have an account, register one right now.<br /><font color="999999">The database is not working at the moment, so registration is not functional. To enter the chatroom, just enter a username and login.</font></p>
+    </div>
+    <div class="col-sm-4">
+        <form name="Login" ng-submit="login">
+            <h2 id="message">Login</h2>
+            <table>
+                <tr>
+                    <td align="right">
+                        Username: <input type="text" id="loginname" name="loginname" maxlength="32" ng-model="members.loginname" placeholder="ex: Joe Louis" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        Password: <input type="password" id="password" name="pass" placeholder="Password" />
+                    </td>
+                <tr>
+                    <td>
+                        <button class="btn btn-success" ng-click="loginSuccessful()"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Login</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="col-sm-4">
+        <form name="Register" ng-controller="Register as register" ng-submit="register">
+            <h2>Register</h2>
+            <table>
+                <tr>
+                    <td align="right">
+                        Username: <input type="text" name="username" placeholder="ex: Joe Louis" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        Password: <input type="password" name="pass" placeholder="Password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        Confirm Password: <input type="password" name="pass" placeholder="Password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Register</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

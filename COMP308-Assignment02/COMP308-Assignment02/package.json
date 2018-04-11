@@ -1,0 +1,16 @@
+{
+    "name": "COMP308-Assignment02",
+    "version": "0.0.0",
+    "description": "COMP308-Assignment02",
+    "main": "server.js",
+    "author": {
+        "name": "Louis",
+        "email": "someonewholives@hotmail.com"
+    },
+    "dependencies": {
+        "socket.io": "*",
+        "express": "*",
+        "mongoose": "*",
+        "body-parser": "*"
+    }
+}

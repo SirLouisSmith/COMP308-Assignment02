@@ -1,0 +1,42 @@
+﻿<html ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Health App V.2</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   
+    <script src="/Public/Patients/Scripts/angular.js"></script>
+    <script src="/Public/Patients/Scripts/angular-route.min.js"></script>
+    <script src="/Public/Patients/Scripts/socket.io.js"></script>
+    <script src="/Public/Patients/Scripts/app.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#assignmentChoice">COMP308</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#patientList">Assignment 1</a></li>
+                    <li><a href="#login">Assignment 2</a></li>
+                    <li><a href="#drlogin">Assignment 3</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#register"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Register</a></li>
+                    <li><a href="#drlogin"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Emerging Assignments</h1>
+            <p>This site is used to store all of my COMP308 Assignments</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" ng-view></div>
+        </div>
+    </div>
+</body>
+</html>
